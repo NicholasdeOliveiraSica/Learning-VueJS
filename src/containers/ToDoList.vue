@@ -6,9 +6,9 @@
       <h1 class="text-2xl font-bold">Completed Tasks</h1>
       <div class="h-[3px] bg-green-600 w-full shadow" aria-hidden="true"></div>
       <ul>
-        <li v-for="task in okTasks" :key="task.id"><strong>{{ task.id }}</strong> - {{ task.title }}</li>
+        <li v-for="task in okTasks" :key="task.id" class="myTask"><strong>{{ task.id }}</strong> - {{ task.title }}</li>
       </ul>
-      /** [...] */
+      <!-- [...] -->
     </div>
 
     
@@ -16,9 +16,9 @@
       <h1 class="text-2xl font-bold">Uncompleted Tasks</h1>
       <div class="h-[3px] bg-red-500 w-full shadow" aria-hidden="true"></div>
       <ul>
-        <li v-for="task in notOkTasks" :key="task.id"><strong>{{ task.id }}</strong> - {{ task.title }}</li>
+        <li v-for="task in notOkTasks" :key="task.id" class="myTask"><strong>{{ task.id }}</strong> - {{ task.title }}</li>
       </ul>
-      /** [...] */
+      <!-- [...] -->
     </div>
   </section>
 
@@ -28,7 +28,7 @@
       <li v-for="task in toDoList" :key="task.id">
         <input v-model="task.complete" type="checkbox" /> {{ task.title }}
       </li>
-      /** [...] */
+      <!-- [...] -->
     </ul>
   </div>
 
@@ -104,7 +104,7 @@ export default {
     okTasks() { /** CRIA UM ARRAY[] DE TAREFAS COMPLETAS A PARTIR DO ARRAY toDoList[] */
       return this.toDoList.filter(task => task.complete);
     },
-    notOkTasks() {
+    notOkTasks() { /** CRIA UM ARRAY[] DE TAREFAS INCOMPLETAS A PARTIR DO ARRAY toDoList[] */
       return this.toDoList.filter(task => !task.complete)
     }
   },
@@ -117,14 +117,11 @@ export default {
 </script>
 
 
-
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+
+.task {
+  transition: all 0.3s ease;
 }
+
+
 </style>
