@@ -4,11 +4,12 @@ module.exports = defineConfig({
   transpileDependencies: true,
 
   devServer: {
+    hot: false,
     client: {
       webSocketURL: {
-        protocol: process.env.HTTPS ? 'wss' : 'ws',
+        protocol: 'wss',
         hostname: '0.0.0.0',
-        port: process.env.HTTPS ? 443 : 8080,
+        port: 443,
       },
     },
     allowedHosts: 'all',
